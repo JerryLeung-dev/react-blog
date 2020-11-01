@@ -24,7 +24,7 @@ app.get('/', (req,res,next) =>{
     res.send('Hello World');
 })
 
-app.get('/api/user/auth', auth, (req, res) => {
+app.get('/api/users/auth', auth, (req, res) => {
     res.status(200)
         .json({
             _id: req.user._id,
@@ -47,7 +47,7 @@ app.post('/api/users/register', (req,res) => {
     });  
 })
 
-app.post('/api/user/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
     //Find email
     User.findOne({email: req.body.email}, (err, user) => {
         if(!user){
